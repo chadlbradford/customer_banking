@@ -1,8 +1,25 @@
 # Import the create_cd_account and create_savings_account functions
-# ADD YOUR CODE HERE
 from savings_account import create_savings_account
 from cd_account import create_cd_account
-# Define the main function
+
+def get_valid_float(prompt):
+    """Prompt the user for a valid float value."""
+    while True:
+        user_input = input(prompt).strip()
+        try:
+            return float(user_input)
+        except ValueError:
+            print("Invalid input. Please enter a valid number.")
+
+def get_valid_int(prompt):
+    """Prompt the user for a valid integer value."""
+    while True:
+        user_input = input(prompt).strip()
+        try:
+            return int(user_input)
+        except ValueError:
+            print("Invalid input. Please enter a valid integer.")
+
 def main():
     """This function prompts the user to enter the savings and cd account balance, interest rate,
     and the length of months to determine the interest gained.
@@ -10,9 +27,9 @@ def main():
     """
     # Prompt the user to set the savings balance, interest rate, and months for the savings account.
     print("Savings Account Details:")
-    savings_balance = float(input("Enter the initial balance for the savings account: "))
-    savings_interest_rate = float(input("Enter the annual interest rate (in %) for the savings account: "))
-    savings_months = int(input("Enter the number of months for the savings account: "))
+    savings_balance = get_valid_float("Enter the initial balance for the savings account: ")
+    savings_interest_rate = get_valid_float("Enter the annual interest rate (in %) for the savings account: ")
+    savings_months = get_valid_int("Enter the number of months for the savings account: ")
 
     # Call the create_savings_account function and pass the variables from the user.
     savings_updated_balance, savings_interest_earned = create_savings_account(
@@ -29,9 +46,9 @@ def main():
 
     # Prompt the user to set the CD balance, interest rate, and months for the CD account.
     print("\nCD Account Details:")
-    cd_balance = float(input("Enter the initial balance for the CD account: "))
-    cd_interest_rate = float(input("Enter the annual interest rate (in %) for the CD account: "))
-    cd_months = int(input("Enter the number of months for the CD account: "))
+    cd_balance = get_valid_float("Enter the initial balance for the CD account: ")
+    cd_interest_rate = get_valid_float("Enter the annual interest rate (in %) for the CD account: ")
+    cd_months = get_valid_int("Enter the number of months for the CD account: ")
 
     # Call the create_cd_account function and pass the variables from the user.
     cd_updated_balance, cd_interest_earned = create_cd_account(cd_balance, cd_interest_rate, cd_months)

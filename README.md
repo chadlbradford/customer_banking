@@ -18,6 +18,7 @@ This project is a Python-based banking application that simulates the management
 
 4. **Interactive User Input:**
    - Prompts the user to input details for each account.
+   - Validates the user input.
    - Displays the summary of account activity, including initial balance, interest earned, and final balance.
 
 ## File Structure
